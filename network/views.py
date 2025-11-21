@@ -171,7 +171,7 @@ def summary(request):
         if grad.babies is not None:
             m += 1
             tot_babies += grad.babies
-        if grad.married:
+        if grad.married is True:
             tot_married += 1
     av_babies = tot_babies/m
     av_jobs = tot_jobs/i
