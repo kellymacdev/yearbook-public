@@ -179,13 +179,18 @@ def summary(request):
     av_countries = tot_countries/k
     av_tattoos = tot_tattoos/l
     percentage_married = (tot_married/len(grads))*100
+    most_babies = Graduate.objects.order_by('-babies').first()
+    most_tattooes = Graduate.objects.order_by('-tattoos').first()
+    most_countries = Graduate.objects.order_by('-countries').first()
+    most_jobs = Graduate.objects.order_by('-jobs').first()
+    most_school = Graduate.objects.order_by('-school_years').first()
 
     user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
     if 'mobile' in user_agent or 'iphone' in user_agent or 'android' in user_agent:
         template_name = "network/summary2-mobile.html"
     else:
         template_name = "network/summary2.html"
-    return render(request, template_name,{
+    return render(request, template_name, {
         "grads": grads,
         "av_babies": round(av_babies,2),
         "av_jobs": round(av_jobs,2),
@@ -195,11 +200,11 @@ def summary(request):
         "tot_tattoos": tot_tattoos,
         "tot_babies": tot_babies,
         "percentage_married": round(percentage_married,2),
-        "most_babies": Graduate.objects.order_by('-babies').first()
-        "most_tattooes": Graduate.objects.order_by('-tattoos').first()
-        "most_countries": Graduate.objects.order_by('-countries').first()
-        "most_jobs": Graduate.objects.order_by('-jobs').first(),
-        "most_school": Graduate.objects.order_by('-school_years').first()
+        "most_babies": most_babies,
+        "most_tattooes": most_tattooes,
+        "most_countries": most_countries,
+        "most_jobs": most_jobs,
+        "most_school": most_school
     })
 
 def login_view(request):
