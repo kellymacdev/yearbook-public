@@ -39,7 +39,7 @@
     </div>
     <div class="stat-card-mobile">
       <span class="stat-icon-mobile">💍</span>
-      <h3>35%</h3>
+      <h3>{{ percentage_married }}%</h3>
       <p>Married</p>
     </div>
   </div>
@@ -67,10 +67,10 @@
 
     <div class="tie-names-mobile">
 
-      <strong>Caylin LeFevre</strong>
+      <strong>{{ most_babies.name }}</strong>
     </div>
 
-    <p class="tie-value-mobile">— 3 babies —</p>
+    <p class="tie-value-mobile">— {{ most_babies.babies }} babies —</p>
   </div>
 
 
@@ -80,11 +80,10 @@
 
 
     <div class="tie-names-mobile">
-        <strong>Jordan Magrobi</strong>
+        <strong>{{ most_tattooes.name }}</strong>
     </div>
-    <p class="tie-value-mobile">— 13 tattoos —</p>
+    <p class="tie-value-mobile">— {{ most_tattooes.tattoos }} tattoos —</p>
   </div>
-
 
     <div class="extreme-item-mobile">
       <span class="icon-mobile">🌍</span>
@@ -92,11 +91,10 @@
 
 
     <div class="tie-names-mobile">
-        <strong>Hannah Ireland</strong>
+        <strong>{{ most_countries.name }}</strong>
     </div>
-    <p class="tie-value-mobile">— 10 countries —</p>
+    <p class="tie-value-mobile">— {{ most_countries.countries }} countries —</p>
   </div>
-
 
     <div class="extreme-item-mobile">
       <span class="icon-mobile">💼</span>
@@ -104,9 +102,9 @@
 
 
     <div class="tie-names-mobile">
-      <strong>Jordan Magrobi</strong>
+      <strong>{{ most_jobs.name }}</strong>
     </div>
-    <p class="tie-value-mobile">— 10+ jobs —</p>
+    <p class="tie-value-mobile">— {{ most_jobs.jobs }} jobs —</p>
   </div>
 
 
@@ -116,14 +114,9 @@
 
 
     <div class="tie-names-mobile">
-      <strong>Aviwe Cingo</strong>
-      <strong>Megan Marx</strong>
-      <strong>Kelly MacDevette</strong>
-      <strong>San Padayachee</strong>
-        <strong>Joanna Michowicz</strong>
-        <strong>Amanda Peake</strong>
+      <strong>{{ most_school.name }}</strong>
     </div>
-    <p class="tie-value-mobile">— 10 years —</p>
+    <p class="tie-value-mobile">— {{ most_school.school_years }} years —</p>
   </div>
 
 

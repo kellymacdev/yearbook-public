@@ -149,6 +149,7 @@ def summary(request):
     tot_school = 0
     tot_countries = 0
     tot_tattoos = 0
+    tot_married = 0
     i = 0
     j= 0
     k = 0
@@ -170,11 +171,14 @@ def summary(request):
         if grad.babies is not None:
             m += 1
             tot_babies += grad.babies
+        if grad.married:
+            tot_married += 1
     av_babies = tot_babies/m
     av_jobs = tot_jobs/i
     av_school = tot_school/j
     av_countries = tot_countries/k
     av_tattoos = tot_tattoos/l
+    percentage_married = (tot_married/len(grads))*100
 
     user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
     if 'mobile' in user_agent or 'iphone' in user_agent or 'android' in user_agent:
@@ -189,7 +193,13 @@ def summary(request):
         "av_countries": round(av_countries,2),
         "av_tattoos": round(av_tattoos,2),
         "tot_tattoos": tot_tattoos,
-        "tot_babies": tot_babies
+        "tot_babies": tot_babies,
+        "percentage_married": round(percentage_married,2),
+        "most_babies": Graduate.objects.order_by('-babies').first()
+        "most_tattooes": Graduate.objects.order_by('-tattoos').first()
+        "most_countries": Graduate.objects.order_by('-countries').first()
+        "most_jobs": Graduate.objects.order_by('-jobs').first(),
+        "most_school": Graduate.objects.order_by('-school_years').first()
     })
 
 def login_view(request):
@@ -225,10 +235,10 @@ def register(request):
         # Ensure password matches confirmation
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
-        invite_code = request.POST.get("invite_code")  # new field
+        invite_code = request.POST.get("invite_code")  
 
         # Check invite code
-        if invite_code != "CLASS2015":  # your secret code
+        if invite_code != "0000":  
             return render(request, "network/register.html", {
                 "message": "Invalid invite code."
             })
