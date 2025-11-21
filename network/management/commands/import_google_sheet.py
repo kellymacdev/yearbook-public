@@ -49,8 +49,8 @@ class Command(BaseCommand):
                     if model_field in ['school_years', 'countries', 'jobs', 'tattoos', 'babies']:
                         value = int(value) if value not in ['', None] else None
 
-                    #if model_field == 'married':
-                    #    value = True if value =='Yup' else False
+                    if model_field == 'married':
+                        value = True if value =='Yup' else False
 
                     graduate_data[model_field] = value
 
