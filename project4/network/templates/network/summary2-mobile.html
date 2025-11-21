@@ -1,0 +1,153 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <h1 class="class-of-2015-h1-mobile">10 Years in Numbers</h1>
+    <hr>
+
+    <div class="big-container-mobile">
+
+
+
+        <section class="class-stats-mobile">
+  <div class="stats-grid-mobile">
+    <div class="stat-card-mobile">
+      <span class="stat-icon-mobile">🖋</span>
+      <h3>{{ tot_tattoos }}</h3>
+      <p>Total Tattoos</p>
+    </div>
+    <div class="stat-card-mobile">
+      <span class="stat-icon-mobile">🌍</span>
+      <h3>{{ av_countries }}</h3>
+      <p>Average Countries Lived In</p>
+    </div>
+    <div class="stat-card-mobile">
+      <span class="stat-icon-mobile">👶</span>
+      <h3>{{ tot_babies }}</h3>
+      <p>Babies Born</p>
+    </div>
+    <div class="stat-card-mobile">
+      <span class="stat-icon-mobile">🎓</span>
+      <h3>{{ av_school }}</h3>
+      <p>Average Years of Schooling</p>
+    </div>
+    <div class="stat-card-mobile">
+      <span class="stat-icon-mobile">💼</span>
+      <h3>{{ av_jobs }}</h3>
+      <p>Average Jobs Per Grad</p>
+    </div>
+    <div class="stat-card-mobile">
+      <span class="stat-icon-mobile">💍</span>
+      <h3>35%</h3>
+      <p>Married</p>
+    </div>
+  </div>
+</section>
+
+        <section class="industry-chart-mobile">
+  <h2>Where We Work</h2>
+            <div class="chart-container">
+  <canvas id="industryBubbleChart"></canvas>
+                </div>
+
+
+
+
+    </section>
+
+        <div class="extremes-card-mobile">
+  <h2>🏆 Class Extremes</h2>
+  <div class="extremes-grid-mobile">
+
+    <div class="extreme-item-mobile">
+  <span class="icon-mobile">👶</span>
+        <p class="label-mobile">Most Babies</p>
+
+
+    <div class="tie-names-mobile">
+
+      <strong>Caylin LeFevre</strong>
+    </div>
+
+    <p class="tie-value-mobile">— 3 babies —</p>
+  </div>
+
+
+    <div class="extreme-item-mobile">
+      <span class="icon-mobile">🖋️</span>
+        <p class="label-mobile">Most Tattoos</p>
+
+
+    <div class="tie-names-mobile">
+        <strong>Jordan Magrobi</strong>
+    </div>
+    <p class="tie-value-mobile">— 13 tattoos —</p>
+  </div>
+
+
+    <div class="extreme-item-mobile">
+      <span class="icon-mobile">🌍</span>
+        <p class="label-mobile">Most Countries</p>
+
+
+    <div class="tie-names-mobile">
+        <strong>Hannah Ireland</strong>
+    </div>
+    <p class="tie-value-mobile">— 10 countries —</p>
+  </div>
+
+
+    <div class="extreme-item-mobile">
+      <span class="icon-mobile">💼</span>
+        <p class="label-mobile">Most Jobs</p>
+
+
+    <div class="tie-names-mobile">
+      <strong>Jordan Magrobi</strong>
+    </div>
+    <p class="tie-value-mobile">— 10+ jobs —</p>
+  </div>
+
+
+    <div class="extreme-item-mobile">
+      <span class="icon-mobile">🎓</span>
+        <p class="label-mobile">Most Schooling</p>
+
+
+    <div class="tie-names-mobile">
+      <strong>Aviwe Cingo</strong>
+      <strong>Megan Marx</strong>
+      <strong>Kelly MacDevette</strong>
+      <strong>San Padayachee</strong>
+        <strong>Joanna Michowicz</strong>
+        <strong>Amanda Peake</strong>
+    </div>
+    <p class="tie-value-mobile">— 10 years —</p>
+  </div>
+
+
+  </div>
+</div>
+
+
+
+
+    <section class="world-map-mobile">
+        <h2>Where are they now</h2>
+    <div class="map">
+    <canvas id="livedMap"></canvas>
+    </div>
+    </section>
+
+
+    </div>
+
+{% block script %}
+    <script>const isMobile = true;</script>
+    <script src="{% static "bubblechart3.js" %}"></script>
+    <script src="{% static "livedmap2.js" %}"></script>
+{% endblock %}
+
+{% endblock %}s
+

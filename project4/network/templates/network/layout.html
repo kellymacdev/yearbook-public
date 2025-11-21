@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}TWC Yearbook{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{% static 'network/10_years_1.png' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'network/styles2.css' %}?v=28" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=Italiana&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Wire+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@100;400;700&display=swap" rel="stylesheet">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@4"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+    <body class="new-full-body">
+
+        <nav>
+          
+            <div>
+              <ul class="navbar">
+                {% if user.is_authenticated %}
+                    <li class="nav-item-new">
+                     <a class="nav-link-new" href="{% url 'index' %}">GRADUATES LIST</a>
+                    </li>
+
+                    <li class="nav-item-new">
+                     <a class="nav-link-new" href="{% url 'summary' %}">SOME STATS</a>
+                    </li>
+
+                    <li class="nav-item-new">
+                     <a class="nav-link-new" href="{% url 'memoriam' person="linda" %}">FOR LINDA</a>
+                    </li>
+
+                    <li class="nav-item-new">
+                     <a class="nav-link-new" href="{% url 'memoriam' person="zaza" %}">FOR ZAZA</a>
+                    </li>
+
+                    <li class="nav-item-new">
+                        <a class="nav-link-new" href="{% url 'logout' %}">LOG OUT</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item-new">
+                        <a class="nav-link-new" href="{% url 'login' %}">LOG IN</a>
+                    </li>
+                    <li class="nav-item-new">
+                        <a class="nav-link-new" href="{% url 'register' %}">REGISTER</a>
+                    </li>
+                {% endif %}
+              </ul>
+            </div>
+          </nav>
+        
+        <div class="new-body">
+            {% block body %}
+            {% endblock %}
+        </div>
+        
+        
+    <div class="button-box">
+        {% block bottom %}
+        {% endblock %}
+    </div>
+
+    
+    
+ {% block script %}
+    {% endblock %}
+    </body>
+    
+
+
+</html>
