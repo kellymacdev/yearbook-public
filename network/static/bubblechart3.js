@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const data = {
         datasets: [
-            {label: "Research", data: [{x: 5.5, y: 4.5, r: 30, gradCount: 1}], backgroundColor: "hsl(0, 70%, 60%)"},
-            {label: "Finance", data: [{x: 8, y: 8, r: 30, gradCount: 1}], backgroundColor: "hsl(45,100%,49%)"},
-            {label: "Hospitality", data: [{x: 8, y: 5, r: 30, gradCount: 1}], backgroundColor: "hsl(120, 70%, 60%)"},
-            {label: "Education", data: [{x: 2, y: 2.5, r: 30, gradCount: 1}], backgroundColor: "hsl(180, 70%, 60%)"},
+            {label: "Research", data: [{x: 5.5, y: 4.5, r: 60, gradCount: 1}], backgroundColor: "hsl(0, 70%, 60%)"},
+            {label: "Finance", data: [{x: 8, y: 8, r: 60, gradCount: 1}], backgroundColor: "hsl(45,100%,49%)"},
+            {label: "Hospitality", data: [{x: 8, y: 5, r: 60, gradCount: 1}], backgroundColor: "hsl(120, 70%, 60%)"},
+            {label: "Education", data: [{x: 2, y: 2.5, r: 60, gradCount: 1}], backgroundColor: "hsl(180, 70%, 60%)"},
             //{label: "Tech", data: [{x: 5, y: 2, r: 36, gradCount: 4}], backgroundColor: "hsl(240, 70%, 60%)"},
             //{label: "Marketing", data: [{x: 8, y: 2, r: 63, gradCount: 7}], backgroundColor: "hsl(300, 70%, 60%)"},
             //{label: "Health", data: [{x: 2.2, y: 6.5, r: 63, gradCount: 7}], backgroundColor: "hsl(348,55%,34%)"},
