@@ -91,54 +91,28 @@ def profile(request, grad_id):
 @login_required
 def memoriam(request, person):
     grads = Graduate.objects.all()
-    for_linda = []
-    for_zaza = []
-    if person == "linda":
-        for grad in grads:
-            if grad.for_linda:
-                for_linda.append([grad.for_linda,grad.name])
-        list = for_linda
-        folder_path = os.path.join(settings.BASE_DIR, 'network', 'static', 'linda')
+    mem_words = []
+    
+    for grad in grads:
+        if grad.memoriam:
+            mem_words.append([grad.memoriam,grad.name])
+        list = mem_words
+        folder_path = os.path.join(settings.BASE_DIR, 'network', 'static', 'Memoriam')
         files = sorted(
             [f for f in os.listdir(folder_path) if
              os.path.isfile(os.path.join(folder_path, f)) and not f.startswith('.')]
         )
-        file_urls1 = [f'linda/{f}' for f in files[0:7]]
-        file_urls2 = [f'linda/{f}' for f in files[7:]]
-    elif person == "zaza":
-        for grad in grads:
-            if grad.for_zaza:
-                for_zaza.append([grad.for_zaza,grad.name])
-        list = for_zaza
-        folder_path = os.path.join(settings.BASE_DIR, 'network', 'static', 'zaza')
-        files = sorted(
-            [f for f in os.listdir(folder_path) if
-             os.path.isfile(os.path.join(folder_path, f)) and not f.startswith('.')]
-        )
-        file_urls1 = [f'zaza/{f}' for f in files[0:7]]
-        file_urls2 = [f'zaza/{f}' for f in files[7:]]
-    else:
-        list = None
-        file_urls1 = None
-        file_urls2 = None
-        imgs = [file_urls1, file_urls2]
+        file_urls1 = [f'Memoriam/{f}' for f in files[0:7]]
     user_agent = request.META.get('HTTP_USER_AGENT', '').lower()
     if 'mobile' in user_agent or 'iphone' in user_agent or 'android' in user_agent:
-        row1 = [file_urls1[1]]
-        row2 = [file_urls1[0]]
-        row2+=file_urls1[2:]
-        row2 += file_urls2
-        imgs = [row1,row2]
         template_name = "network/memoriam-mobile.html"
-
     else:
-        imgs = [file_urls1, file_urls2]
         template_name = "network/memoriam.html"
 
     return render(request, template_name, {
         "person": person.capitalize(),
         "memoriam_list": list,
-        "imgs": imgs
+        "imgs": file_urls1
     })
 
 @login_required

@@ -20,17 +20,12 @@
             </div>
 
             <div class="photo-container">
-                {% for image in imgs.0 %}
+                {% for image in imgs %}
                     <img src="{% static image %}" alt="">
                 {% endfor %}
             </div>
         </div>
     
-        <div class="photo-row">
-            {% for image in imgs.1 %}
-                    <img src="{% static image %}" alt="">
-            {% endfor %}
-        </div>
     </div>
 
 {% block script %}

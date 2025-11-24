@@ -28,8 +28,7 @@ COLUMN_MAPPING = {
             "Have any tattoos?": 'tattoos',
             "Are you married?": 'married',
             "Had any babies?": 'babies',
-            "For Zaza": 'for_zaza',
-            "For Linda": 'for_linda',
+            "Memoriam": 'memoriam',
             "Spotify": 'spotify'
         }
 

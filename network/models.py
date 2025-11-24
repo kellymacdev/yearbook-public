@@ -50,8 +50,7 @@ class Graduate(models.Model):
     tattoos = models.IntegerField(blank=True, null=True)
     married = models.TextField(default=False)
     babies = models.IntegerField(blank=True, null=True)
-    for_zaza = models.TextField(blank=True, null=True)
-    for_linda = models.TextField(blank=True, null=True)
+    memoriam = models.TextField(blank=True, null=True)
     spotify = models.TextField(blank=True, null=True)
 
     def __str__(self):

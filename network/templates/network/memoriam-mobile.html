@@ -8,7 +8,7 @@
     <div class="full-container">
         <h1 class="class-of-2015-h1-mobile">In Memory of {{ person }}</h1>
         <div class="photo-row-top">
-            {% for image in imgs.0 %}
+            {% for image in imgs %}
                     <img src="{% static image %}" alt="">
             {% endfor %}
         </div>
@@ -23,12 +23,6 @@
                     </div>
                 {% endfor %}
             </div>
-    
-        <div class="photo-row">
-            {% for image in imgs.1 %}
-                    <img src="{% static image %}" alt="">
-            {% endfor %}
-        </div>
     </div>
 {% block script %}
   <script src="{% static "popups.js" %}"></script>
