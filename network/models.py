@@ -5,26 +5,6 @@ from django.db import models
 class User(AbstractUser):
     following = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
 
-class Post(models.Model):
-    content = models.TextField()
-    likes = models.ManyToManyField(User, symmetrical=False, null=True, blank=True, related_name='liked_posts')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Post {self.id}"
-
-    def serialize(self, user=None):
-        return {
-            "id": self.id,
-            "content": self.content,
-            "timestamp": self.timestamp.strftime("%b %d %Y, %I:%M %p"),
-            "user": self.user.username,
-            "likes": self.likes.count(),
-            "liked": user.is_authenticated and self.likes.filter(id=user.id).exists() if user else False,
-            "my_post": user.is_authenticated and self.user == user if user else False,
-        }
-
 class Graduate(models.Model):
     name = models.TextField()
     maiden_name = models.TextField(blank=True, null=True)

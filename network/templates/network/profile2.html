@@ -181,7 +181,7 @@
       <div class="stat-item">
         <span class="icon">💍</span>
         <span class="label">Married:</span>
-        <span class="value">{{  graduate.married }}</span>
+        <span class="value">{{ graduate.married|yesno:"Yes,No" }}</span>
       </div>
     {% endif %}
   </div>

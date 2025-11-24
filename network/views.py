@@ -173,7 +173,7 @@ def summary(request):
         "av_tattoos": round(av_tattoos,2),
         "tot_tattoos": tot_tattoos,
         "tot_babies": tot_babies,
-        "percentage_married": round(percentage_married,2),
+        "percentage_married": round(percentage_married),
         "most_babies": most_babies,
         "most_tattooes": most_tattooes,
         "most_countries": most_countries,
