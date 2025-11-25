@@ -1,10 +1,11 @@
 ## Overview
 
 **Yearbook** is a full-stack Django project that functions as a digital yearbook platform.  
-It showcases graduate information, including names, photos, and other details stored in a SQL database, initialized directly from a local CSV file. 
-The app supports user authentication, an administrative backend, and deployment via Render.
+It showcases individual graduate information, including names, photos, and answers to other questions details stored in a SQL database, initialized directly from a local CSV file. Additionally, it features a summary page for stats on the graduate class and a In Memoriam page containing messages submitted by graduates in memory of a graduate who has passed. 
+The app supports qualified user registration and authentication, an administrative backend, and deployment via Render. To access the current site, visit [Yearbook](https://yearbook-public.onrender.com/), register an account and use the invite code 0000. 
 
-![Screenshot 2025-10-20 at 15 21 47](https://github.com/user-attachments/assets/5623e046-df0f-44c8-9746-5df7cb459d81)
+<img width="2812" height="1318" alt="image" src="https://github.com/user-attachments/assets/47760798-5923-420c-85a3-20c034986745" />
+<img width="2788" height="1540" alt="image" src="https://github.com/user-attachments/assets/c89a1e21-4ca8-4215-bffc-760ab7cb1bd8" />
 
 
 
@@ -42,7 +43,7 @@ python manage.py runserver
 ### Deployment
 
 This repository includes Render configuration files (build.sh, render.yaml) for automated deployment.
-Provision a PostgreSQL instance on Render, set the DATABASE_URL environment variable, and the app will deploy directly from the GitHub repository.
+
 
 -----------------------
 
@@ -53,7 +54,9 @@ Yearbook/
 │   ├── models.py         # Data models (Graduates, Users)
 │   ├── views.py          # Application logic
 │   ├── templates/        # HTML templates
+│   ├── management/       # python file 
 │   └── static/           # CSS, images
+
 ├── data/
     ├── graduates.csv     # Data source for population        
 ├── manage.py
